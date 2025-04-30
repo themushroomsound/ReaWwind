@@ -62,6 +62,18 @@ function reaWwind.get_selected_objects(return_attributes)
     reaWwind.query_result = reaper.AK_Waapi_Call("ak.wwise.ui.getSelectedObjects", reaper.AK_AkJson_Map(), reaWwind.build_query_options(return_attributes))
 end
 
+-- Searches a string in wwise
+function reaWwind.search(search_string)
+
+    -- Building arguments object 
+    local arguments = reaper.AK_AkJson_Map()
+    reaper.AK_AkJson_Map_Set(arguments, "command",  reaper.AK_AkVariant_String("SearchInProjectExplorer"))
+    reaper.AK_AkJson_Map_Set(arguments, "value", reaper.AK_AkVariant_String(search_string))
+
+    -- Call the search command
+    reaper.AK_Waapi_Call("ak.wwise.ui.commands.execute", arguments, reaper.AK_AkJson_Map())
+end
+
 -- Gets the current switch value for a switch group on the Transport game object
 function reaWwind.get_transport_switch_group_value(switch_group, return_attributes)
 
