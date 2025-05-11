@@ -1,7 +1,7 @@
 -- Import ReaW2R Module
 local path = ({reaper.get_action_context()})[2]:match('^.+[\\//]')
 package.path = path .. "?.lua"
-local ReaWwind = require("ReaW2R")
+local ReaWwind = require("ReaWwind")
 
 reaper.ClearConsole()
 

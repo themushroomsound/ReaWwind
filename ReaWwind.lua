@@ -182,13 +182,21 @@ end
 -- replace the source of a media item's active take
 function reaWwind.import_to_media_item(item, source_file)
 
+    -- replace source for the item's current take
     local take = reaper.GetActiveTake(item)
     local source = reaper.PCM_Source_CreateFromFile(source_file)
     reaper.SetMediaItemTake_Source(take, source)
 
-    -- set position, name, length
-    local source_length = reaper.GetMediaSourceLength(source)
-    reaper.SetMediaItemInfo_Value(item, "D_LENGTH", source_length)  
+    -- check if the media item has a fade out
+    local fadeout_length = reaper.GetMediaItemInfo_Value(item, "D_FADEOUTLEN")
+    if(fadeout_length == 0) then
+        -- if no fadeout, match item length to source
+        local source_length = reaper.GetMediaSourceLength(source)
+        reaper.SetMediaItemInfo_Value(item, "D_LENGTH", source_length)  
+    end
+
+    -- set the item to NOT loop source by default
+    reaper.SetMediaItemInfo_Value(item, "B_LOOPSRC", 0)  
 
     reaper.UpdateArrange()
 
