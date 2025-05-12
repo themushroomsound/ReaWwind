@@ -4,7 +4,10 @@ ReaWwind is a collection of Reaper scripts meant to re-import audio from Wwise t
 
 ## Purpose
 
-The idea is to facilitate reusing game audio assets: use gameplay audio assets in a linear project (cutscene, trailer...) without having to dig for the original design session, or maybe in-Reaper sequencing of audio events to be later exported as markers in a game engine animation, etc.
+The idea is to facilitate reusing game audio assets: 
+* use gameplay audio assets in a linear project (cutscene, trailer...) without having to dig for the design session or a .wav file in Wwise's Originals folder,
+* or maybe in-Reaper sequencing of audio events to be later exported as markers in a game engine animation,
+* etc.
 
 ## Getting Started
 
