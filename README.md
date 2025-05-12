@@ -19,6 +19,7 @@ ReaWwind needs Audiokinetic's ReaWwise plugin installed.
   * ReaWwind_CreateNewItemsFromWwiseSelection.lua
   * ReaWwind_FillSelectedItemFromWwiseSelection.lua
   * ReaWwind_FillSelectedItemsFromItemNames.lua
+  * ReaWwind_SearchItemNameInWwise
 
 ### Executing program
 
